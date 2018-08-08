@@ -5,14 +5,13 @@
  */
 package com.jp.fleetmanagement.vehicle.repository;
 
-import com.jp.fleetmanagement.vehicle.model.Vehicle;
+import com.jp.fleetmanagement.vehicle.model.FuelTracker;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author prjoshi
  */
-
-public interface VehicleRepository extends JpaRepository<Vehicle, Long>{
+public interface FuelTrackerRepository extends JpaRepository<FuelTracker, Long>{
     
 }

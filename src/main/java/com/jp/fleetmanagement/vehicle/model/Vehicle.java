@@ -6,11 +6,13 @@
 package com.jp.fleetmanagement.vehicle.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -21,10 +23,8 @@ import org.hibernate.annotations.GenericGenerator;
 public class Vehicle implements Serializable {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id", columnDefinition = "VARCHAR(255)")
-    private UUID id;
+    @GeneratedValue
+    private Long id;
 
     @Column(name = "registrationNumber", columnDefinition = "VARCHAR(30)")
     private String registrationNumber;
@@ -39,12 +39,15 @@ public class Vehicle implements Serializable {
     private String engienNumber;
     @Column(name = "countryOfRegistration", columnDefinition = "VARCHAR(3)")
     private String countryOfRegistration;
+    
+    @OneToMany(mappedBy = "vehicle")
+    private List<FuelTracker> fuelTrackers;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -94,6 +97,14 @@ public class Vehicle implements Serializable {
 
     public void setEngienNumber(String engienNumber) {
         this.engienNumber = engienNumber;
+    }
+
+    public List<FuelTracker> getFuelTrackers() {
+        return fuelTrackers;
+    }
+
+    public void setFuelTrackers(List<FuelTracker> fuelTrackers) {
+        this.fuelTrackers = fuelTrackers;
     }
 
 }

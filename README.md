@@ -1,2 +1,2 @@
-# vehical
-All the information about the vehical
+# vehicle
+All the information about the vehicle
