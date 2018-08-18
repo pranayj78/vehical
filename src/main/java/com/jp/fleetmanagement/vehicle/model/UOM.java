@@ -10,6 +10,6 @@ package com.jp.fleetmanagement.vehicle.model;
  * @author prjoshi
  */
 
-enum UOM {
+public enum UOM {
     KG, LITRE, UK_GALLON, US_GALLON
 }
